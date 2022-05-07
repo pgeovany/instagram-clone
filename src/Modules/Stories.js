@@ -1,80 +1,55 @@
 export default function Stories() {
+
+    const stories = [
+        {
+            name:"9gag",
+            image: "assets/img/9gag.svg"
+        },
+        {
+            name:"meowed",
+            image: "assets/img/meowed.svg"
+        },
+        {
+            name:"barked",
+            image: "assets/img/barked.svg"
+        },
+        {
+            name:"nathanwpylestrangeplanet",
+            image: "assets/img/nathanwpylestrangeplanet.svg"
+        },
+        {
+            name:"wawawicomics",
+            image: "assets/img/wawawicomics.svg"
+        },
+        {
+            name:"respondeai",
+            image: "assets/img/respondeai.svg"
+        },
+        {
+            name:"filomoderna",
+            image: "assets/img/filomoderna.svg"
+        },
+        {
+            name:"memeriagourmet",
+            image: "assets/img/memeriagourmet.svg"
+        }
+        ]
+
     return (
         <div class="stories">
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/9gag.svg" />
-            </div>
-            <div class="usuario">
-                9gag
-            </div>
+            {stories.map(item => <Story name={item.name} image={item.image}/>)}
         </div>
+    );
+}
 
-        <div class="story">
-            <div class="imagem">
-                <img src="assets/img/meowed.svg" />
-            </div>
-            <div class="usuario">
-                meowed
-            </div>
-        </div>
-
+function Story(props) {
+    return (
         <div class="story">
         <div class="imagem">
-            <img src="assets/img/barked.svg" />
+            <img src={props.image} />
         </div>
         <div class="usuario">
-            barked
-        </div>
-        </div>
-
-        <div class="story">
-        <div class="imagem">
-            <img src="assets/img/nathanwpylestrangeplanet.svg" />
-        </div>
-        <div class="usuario">
-            nathanwpylestrangeplanet
-        </div>
-        </div>
-
-        <div class="story">
-        <div class="imagem">
-            <img src="assets/img/wawawicomics.svg" />
-        </div>
-        <div class="usuario">
-            wawawicomics
-        </div>
-        </div>
-        
-        <div class="story">
-        <div class="imagem">
-            <img src="assets/img/respondeai.svg" />
-        </div>
-        <div class="usuario">
-            respondeai
-        </div>
-        </div>
-
-        <div class="story">
-        <div class="imagem">
-            <img src="assets/img/filomoderna.svg" />
-        </div>
-        <div class="usuario">
-            filomoderna
-        </div>
-        </div>
-
-        <div class="story">
-        <div class="imagem">
-            <img src="assets/img/memeriagourmet.svg" />
-        </div>
-        <div class="usuario">
-            memeriagourmet
-        </div>
-        </div>
-
-        <div class="setinha">
-        <ion-icon name="chevron-forward-circle"></ion-icon>
+            {props.name}
         </div>
     </div>
     );
