@@ -1,5 +1,5 @@
 export default function Stories() {
-    retrun (
+    return (
         <div class="stories">
         <div class="story">
             <div class="imagem">
