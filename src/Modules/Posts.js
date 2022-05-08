@@ -5,14 +5,16 @@ export default function Posts() {
             name:"meowed",
             title: "assets/img/meowed.svg",
             image: "assets/img/gato-telefone.svg",
-            like: "Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>",
+            like: "respondeai",
+            numberOfLikes: "101.523",
             likeImage: "assets/img/respondeai.svg"
         },
         {
             name:"barked",
             title: "assets/img/barked.svg",
             image: "assets/img/dog.svg",
-            like: "Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>",
+            like: "adorable_animals",
+            numberOfLikes: "99.159",
             likeImage: "assets/img/adorable_animals.svg"
         }
     ]
@@ -20,7 +22,7 @@ export default function Posts() {
     return (
         <div class="posts">
             {posts.map(item => <Post name={item.name} title={item.title} image={item.image} 
-            like={item.like} likeImage={item.likeImage} />)}
+            like={item.like} numberOfLikes={item.numberOfLikes} likeImage={item.likeImage} />)}
     </div>
     );
 }
@@ -57,7 +59,7 @@ function Post(props) {
             <div class="curtidas">
             <img src={props.likeImage} />
             <div class="texto">
-                {props.like}
+                Curtido por <strong>{props.like}</strong> e <strong>outras {props.numberOfLikes} pessoas</strong>
             </div>
             </div>
         </div>
