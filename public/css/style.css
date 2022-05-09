@@ -298,6 +298,10 @@ body {
   margin-top: 18px;
 }
 
+.liked {
+  color: red;
+}
+
 .fundo-mobile {
   display: none;
 }

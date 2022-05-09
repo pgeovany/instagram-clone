@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Posts() {
 
     const posts = [
@@ -20,7 +22,7 @@ export default function Posts() {
     ]
 
     return (
-        <div class="posts">
+        <div className="posts">
             {posts.map(item => <Post name={item.name} title={item.title} image={item.image} 
             like={item.like} numberOfLikes={item.numberOfLikes} likeImage={item.likeImage} />)}
     </div>
@@ -28,26 +30,45 @@ export default function Posts() {
 }
 
 function Post(props) {
+
+    const [heartClass, setHeartClass] = React.useState("");
+    const [heartIcon, setHeartIcon] = React.useState("heart-outline");
+
+    function like() {
+        setHeartIcon("heart");
+        setHeartClass("liked");
+    }
+
+    function dislike() {
+        if(heartClass === "liked") {
+            setHeartIcon("heart-outline");
+            setHeartClass("");
+        } else {
+            setHeartIcon("heart");
+            setHeartClass("liked");
+        }
+    }
+
     return(
-        <div class="post">
-        <div class="topo">
-            <div class="usuario">
+        <div className="post">
+        <div className="topo">
+            <div className="usuario">
             <img src={props.title} />
             {props.name}
             </div>
-            <div class="acoes">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
+            <div className="acoes">
+                <ion-icon name="ellipsis-horizontal"></ion-icon>
             </div>
         </div>
 
-        <div class="conteudo">
-            <img src={props.image} />
+        <div className="conteudo">
+            <img onClick={like} src={props.image} />
         </div>
 
-        <div class="fundo">
-            <div class="acoes">
+        <div className="fundo">
+            <div className="acoes">
             <div>
-                <ion-icon name="heart-outline"></ion-icon>
+                <ion-icon onClick={dislike} className={heartClass} name={heartIcon}></ion-icon>
                 <ion-icon name="chatbubble-outline"></ion-icon>
                 <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
@@ -56,13 +77,13 @@ function Post(props) {
             </div>
             </div>
 
-            <div class="curtidas">
+            <div className="curtidas">
             <img src={props.likeImage} />
-            <div class="texto">
+            <div className="texto">
                 Curtido por <strong>{props.like}</strong> e <strong>outras {props.numberOfLikes} pessoas</strong>
             </div>
             </div>
         </div>
     </div>
     );
-} 
+}
